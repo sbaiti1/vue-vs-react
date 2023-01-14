@@ -2,19 +2,11 @@
 <script setup>
 import { onMounted, reactive, ref, watch } from 'vue'
 
-
+import ListUser from '../components/ListUser.vue';
 var state = reactive({
     counter :0,
 })
 
-var data = [];
-
-const fetchData = async ()=>{
-    console.log("test")
-    var response = await fetch("https://jsonplaceholder.typicode.com/users")
-    // data = await response.Response;
-    console.log(response)
-}
 
 
 const add = ()=>{
@@ -24,9 +16,6 @@ const style = {
     color : 'red'
 }
 
-onMounted(()=>{
-    fetchData()
-})
 
 </script>
 
@@ -42,9 +31,12 @@ onMounted(()=>{
             this is counter == 10 
         </p>
         <div class="elements">
-            <ul>
-                <li v-for="item in state.data" :key="item.name">{{item.name + item.email }}</li>
-            </ul>
+            <Suspense>
+                <ListUser/>
+                <template #fallback>
+                    <p>Loading ... </p>
+                </template>
+            </Suspense>
         </div>
     </div>
     
