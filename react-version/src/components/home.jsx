@@ -6,7 +6,7 @@ export default function Home(){
             <h1>welcome the react version</h1>
             <h2> <Link to="/counter">basic example of counter</Link> </h2>
             <h2> <Link to="/todo" > example of a simple to do list</Link> </h2>
-            <h2> <Link to="/api">How to consume using fetch and axios</Link> </h2>
+            <h2> <Link to="/users">How to consume using fetch and axios</Link> </h2>
         </>
     )
 }
